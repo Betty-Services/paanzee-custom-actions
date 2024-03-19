@@ -5,7 +5,8 @@
     "lodash": "^4.17.15"
   },
   "scripts": {
-    "build": "tsc -p ./tsconfig.json"
+    "build": "tsc -p ./tsconfig.json",
+    "publish": "npm run build && bb functions publish"
   },
   "private": "true"
 }
