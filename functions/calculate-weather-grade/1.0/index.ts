@@ -131,7 +131,7 @@ interface WeatherDataSummary {
     avgWindSpeed: number
 }
 
-const calculateWeatherGrade = async ({ startTime, endTime }: {startTime: string, endTime: string}) => {
+const calculateWeatherGrade = async ({ startTime, endTime }: { startTime: string, endTime: string }) => {
     // MB => MeteoBlue
     // ACW => AccuWeather
 
@@ -443,15 +443,14 @@ const calculateWeatherGrade = async ({ startTime, endTime }: {startTime: string,
     }
 
 
-    const acwWeatherGrade = getACWWeatherGrade(startTime, endTime);
+    // const acwWeatherGrade = getACWWeatherGrade(startTime, endTime);
     const mbWeatherGrade = getMBWeatherGrade(startTime, endTime);
-    const grades = await Promise.all([acwWeatherGrade, mbWeatherGrade]);
-    const averageGrade = (grades[0] + grades[1]) / 2;
+    // const grades = await Promise.all([acwWeatherGrade, mbWeatherGrade]);
+    // const averageGrade = (grades[0] + grades[1]) / 2;
 
     return {
-        result: averageGrade
+        result: mbWeatherGrade
     }
 }
 
 export default calculateWeatherGrade;
-

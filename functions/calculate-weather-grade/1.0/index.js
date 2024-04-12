@@ -245,7 +245,6 @@ const calculateWeatherGrade = async ({ startTime, endTime }) => {
         // Construct start time with today's date
         const start = constructTime(start_time);
         const end = constructTime(end_time);
-        
         for (var i = 0; i < weatherData.length; i++) {
             const datetime = new Date(weatherData[i].DateTime);
             if (datetime < start) {
@@ -280,12 +279,12 @@ const calculateWeatherGrade = async ({ startTime, endTime }) => {
         const ACWGrade = calculateWeatherGrade(ACWSummary, "ACW");
         return ACWGrade;
     };
-    const acwWeatherGrade = getACWWeatherGrade(startTime, endTime);
+    // const acwWeatherGrade = getACWWeatherGrade(startTime, endTime);
     const mbWeatherGrade = getMBWeatherGrade(startTime, endTime);
-    const grades = await Promise.all([acwWeatherGrade, mbWeatherGrade]);
-    const averageGrade = (grades[0] + grades[1]) / 2;
+    // const grades = await Promise.all([acwWeatherGrade, mbWeatherGrade]);
+    // const averageGrade = (grades[0] + grades[1]) / 2;
     return {
-        result: averageGrade
+        result: mbWeatherGrade
     };
 };
 export default calculateWeatherGrade;
